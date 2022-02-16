@@ -22,9 +22,14 @@ require_once "./config.php";
             <h1>Gerenciador de Tarefas</h1>
         </div>
         <div class="form">
-            <form action="" method="get">
+            <form action="task.php" method="post">
+                <input type="hidden" name="insert" value="insert">
                 <label for="task_name">Tarefa:</label>
                 <input type="text" name="task_name" placeholder="Nome da Tarefa:">
+                <label for="task_description">Descrição</label>
+                <input type="text" name="task_description" placeholder="Descrição da Tarefa">
+                <label for="task_date">Data</label>
+                <input type="date" name="task_date">
                 <button type="submit">Cadastrar</button>
             </form>
            <?php
@@ -46,12 +51,12 @@ if (isset($_SESSION['tasks'])) {
 
     foreach ($_SESSION['tasks'] as $key => $task) {
         echo "<li>
-        <span>$task</span>
+        <span>" . $task['task_name'] . "</span>
             <button type='button' class='btn-clear' onclick='deletar$key()'>Remover</button>
             <script>
                 function deletar$key(){
                     if(confirm('Confirma remoção?')){
-                        window.location = 'http://localhost:8000/?key=$key';
+                        window.location = 'http://localhost:8000/task.php?key=$key';
                     }
                     return false;
                 }
