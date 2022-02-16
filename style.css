@@ -96,8 +96,9 @@ body {
     margin-top: 4px;
     margin-bottom: 4px;
     padding: 12px;
+    
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
 
     transition: background 0.3s;

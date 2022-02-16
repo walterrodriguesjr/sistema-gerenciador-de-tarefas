@@ -27,6 +27,14 @@ require_once "./config.php";
                 <input type="text" name="task_name" placeholder="Nome da Tarefa:">
                 <button type="submit">Cadastrar</button>
             </form>
+           <?php
+
+if ($_SESSION['message']) {
+    echo "<p style='color: #ef5350';>" . $_SESSION['message'] . "</p>";
+    unset($_SESSION['message']);
+}
+
+?>
         </div>
         <div class="separator">
         </div>
@@ -37,7 +45,18 @@ if (isset($_SESSION['tasks'])) {
     echo "<ul>";
 
     foreach ($_SESSION['tasks'] as $key => $task) {
-        echo "<li>$task</li>";
+        echo "<li>
+        <span>$task</span>
+            <button type='button' class='btn-clear' onclick='deletar$key()'>Remover</button>
+            <script>
+                function deletar$key(){
+                    if(confirm('Confirma remoção?')){
+                        window.location = 'http://localhost:8000/?key=$key';
+                    }
+                    return false;
+                }
+            </script>
+        </li>";
     }
 
     echo "</ul>";
