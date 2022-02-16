@@ -22,7 +22,7 @@ require_once "./config.php";
             <h1>Gerenciador de Tarefas</h1>
         </div>
         <div class="form">
-            <form action="task.php" method="post">
+            <form action="task.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="insert" value="insert">
                 <label for="task_name">Tarefa:</label>
                 <input type="text" name="task_name" placeholder="Nome da Tarefa:">
@@ -30,6 +30,8 @@ require_once "./config.php";
                 <input type="text" name="task_description" placeholder="Descrição da Tarefa">
                 <label for="task_date">Data</label>
                 <input type="date" name="task_date">
+                <label for="task_image">Imagem:</label>
+                <input type="file" name="task_image">
                 <button type="submit">Cadastrar</button>
             </form>
            <?php
@@ -67,10 +69,7 @@ if (isset($_SESSION['tasks'])) {
     echo "</ul>";
 }
 ?>
-            <form action="" method="get">
-                <input type="hidden" name="clear" value="clear">
-                <button class="btn-clear" type="submit">Limpar Tarefas</button>
-            </form>
+            
         </div>
         <div class="footer">
             <p>Desenvolvido por @Walterrjr86</p>
