@@ -24,9 +24,9 @@ if (isset($_POST['task_name'])) {
         unset($_POST['description']);
         unset($_POST['date']);
 
-
         header('Location:index.php');
-    } else {
+        
+      } else {
         $_SESSION['message'] = "Preencha o campo corretamente!";
         header('Location:index.php');
     }

@@ -11,4 +11,6 @@ if (isset($_GET['clear'])) {
     unset($_GET['clear']);
 }
 
-
+/* $stmt = $conn->prepare("SELECT * FROM tasks");
+$stmt->execute();
+$stmt->setFetchMode(PDO::FETCH_ASSOC); */

@@ -1,5 +1,6 @@
 <?php
 require_once "./config.php";
+/* require __DIR__ . 'connect.php'; */
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +59,7 @@ if (isset($_SESSION['tasks'])) {
             <script>
                 function deletar$key(){
                     if(confirm('Confirma remoção?')){
-                        window.location = 'http://localhost:8000/task.php?key=$key';
+                        window.location = 'http://localhost:8080/task.php?key=$key';
                     }
                     return false;
                 }
